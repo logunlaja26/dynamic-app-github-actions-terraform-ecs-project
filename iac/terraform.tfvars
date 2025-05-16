@@ -22,8 +22,8 @@ database_instance_class      = "db.t3.micro"
 publicly_accessible          = "false"
 
 # acm variables
-domain_name       = "lyosolution.com"
-alternative_names = "*.lyosolution.com"
+domain_name       = "lyosolutions.com"
+alternative_names = "*.lyosolutions.com"
 
 # s3 variables
 env_file_bucket_name = "lyomann-rentzone-app-dev-file-bucket"
