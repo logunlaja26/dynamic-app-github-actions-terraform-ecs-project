@@ -153,7 +153,7 @@ jobs:
 
       - name: Check if ECR repository exists
         env:
-          IMAGE_NAME: ${{ needs.deploy_aws_infrastructure.outputs.image_name }} }}
+          IMAGE_NAME: ${{ needs.deploy_aws_infrastructure.outputs.image_name }}
         run: |
           result=$(aws ecr describe-repositories --repository-names "${{ env.IMAGE_NAME  }}" | jq -r '.repositories[0].repositoryName')
           echo "repo_name=$result" >> $GITHUB_ENV
