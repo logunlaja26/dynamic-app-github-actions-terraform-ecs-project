@@ -47,7 +47,7 @@ jobs:
 
       - name: Get Terraform output image name
         if: env.TERRAFORM_ACTION == 'apply'
-        working-directory:
+        working-directory: ./iac
         run: |
           IMAGE_NAME_VALUE=$(terraform output -raw image_name | grep -Eo "^[^:]+" | tail -n 1)
           echo "IMAGE_NAME=$IMAGE_NAME_VALUE" >> $GITHUB_ENV
