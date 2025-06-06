@@ -224,8 +224,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        env:
-          ACTIONS_ALLOW_UNSECURE_NODE_VERSION: true # Allow secure Node fallback
+
+      - name: Set up Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
