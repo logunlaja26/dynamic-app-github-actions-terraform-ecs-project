@@ -8,7 +8,7 @@ env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_REGION: us-east-2
-  TERRAFORM_ACTION: destroy
+  TERRAFORM_ACTION: apply
   GITHUB_USERNAME: logunlaja26
   REPOSITORY_NAME: github-actions-application-code
   WEB_FILE_ZIP: rentzone.zip
@@ -196,8 +196,8 @@ jobs:
         with:
           mode: start
           github-token: ${{  secrets.PERSONAL_ACCESS_TOKEN }}
-          ec2-image-id: ami-0833a76135d3326d6
-          ec2-instance-type: t2.micro
+          ec2-image-id: ami-0059525486670de03
+          ec2-instance-type: t4g.nano
           subnet-id: ${{ needs.deploy_aws_infrastructure.outputs.private_data_subnet_az1_id }}
           security-group-id: ${{ needs.deploy_aws_infrastructure.outputs.runner_security_group_id }}
           aws-resource-tags: >
