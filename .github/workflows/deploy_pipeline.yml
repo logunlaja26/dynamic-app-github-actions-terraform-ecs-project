@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
+        env:
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
         with:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
@@ -224,8 +226,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        env:
-          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
       - name: Set up Node.js 16
         uses: actions/setup-node@v3
