@@ -33,13 +33,13 @@ RUN amazon-linux-extras enable php7.4 && \
     php-zip
 
 # Download the MySQL repository package
-RUN wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+RUN wget https://repo.mysql.com/mysql80-community-release-el7-3.noarch.rpm
 
 # Import the GPG key for the MySQL repository
 RUN rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 
 # Install the MySQL repository package
-RUN yum localinstall mysql80-community-release-el9-1.noarch.rpm -y
+RUN yum localinstall mysql80-community-release-el7-3.noarch.rpm -y
 
 # Install the MySQL community server package
 RUN yum install mysql-community-server -y
