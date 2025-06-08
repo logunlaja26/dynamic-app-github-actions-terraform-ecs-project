@@ -13,7 +13,7 @@ env:
   REPOSITORY_NAME: github-actions-application-code
   WEB_FILE_ZIP: rentzone.zip
   WEB_FILE_UNZIP: rentzone
-  FLYWAY_VERSION: 11.9.1
+  FLYWAY_VERSION: 9.22.3
 
 jobs:
   # Configure AWS credentials
@@ -315,7 +315,7 @@ jobs:
 
       - name: Download Flyway (ARM64)
         run: |
-          wget -O flyway.tar.gz https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${{ env.FLYWAY_VERSION }}/flyway-commandline-${{ env.FLYWAY_VERSION }}-linux-arm64.tar.gz
+          wget -O flyway.tar.gz https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${{ env.FLYWAY_VERSION }}/flyway-commandline-${{ env.FLYWAY_VERSION }}-arm64.tar.gz
           tar xvf flyway.tar.gz
           if [ -L /usr/local/bin/flyway ] || [ -f /usr/local/bin/flyway ]; then sudo rm -f /usr/local/bin/flyway; fi
           sudo ln -s `pwd`/flyway-${{ env.FLYWAY_VERSION }}/flyway /usr/local/bin
