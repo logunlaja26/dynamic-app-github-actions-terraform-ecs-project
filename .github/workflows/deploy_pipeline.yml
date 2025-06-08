@@ -315,7 +315,8 @@ jobs:
 
       - name: Download Flyway (ARM64)
         run: |
-          wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${{ env.FLYWAY_VERSION }}/flyway-commandline-${{ env.FLYWAY_VERSION }}-linux-arm64.tar.gz | tar xvz
+          wget -O flyway.tar.gz https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${{ env.FLYWAY_VERSION }}/flyway-commandline-${{ env.FLYWAY_VERSION }}-linux-arm64.tar.gz
+          tar xvf flyway.tar.gz
           if [ -L /usr/local/bin/flyway ] || [ -f /usr/local/bin/flyway ]; then sudo rm -f /usr/local/bin/flyway; fi
           sudo ln -s `pwd`/flyway-${{ env.FLYWAY_VERSION }}/flyway /usr/local/bin
 
