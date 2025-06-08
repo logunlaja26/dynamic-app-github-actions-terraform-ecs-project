@@ -313,9 +313,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Download Flyway
+      - name: Download Flyway (ARM64)
         run: |
-          wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${{ env.FLYWAY_VERSION  }}/flyway-commandline-${{ env.FLYWAY_VERSION }}-linux-x64.tar.gz | tar xvz
+          wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${{ env.FLYWAY_VERSION }}/flyway-commandline-${{ env.FLYWAY_VERSION }}-linux-arm64.tar.gz | tar xvz
           if [ -L /usr/local/bin/flyway ] || [ -f /usr/local/bin/flyway ]; then sudo rm -f /usr/local/bin/flyway; fi
           sudo ln -s `pwd`/flyway-${{ env.FLYWAY_VERSION }}/flyway /usr/local/bin
 
