@@ -13,7 +13,7 @@ env:
   REPOSITORY_NAME: github-actions-application-code
   WEB_FILE_ZIP: rentzone.zip
   WEB_FILE_UNZIP: rentzone
-  FLYWAY_VERSION: 9.22.3
+  FLYWAY_VERSION: 10.0.0
 
 jobs:
   # Configure AWS credentials
@@ -315,10 +315,7 @@ jobs:
 
       - name: Download Flyway (ARM64)
         run: |
-          wget -qO- https://download.red-gate.com/maven/release/org/flywaydb/enterprise/flyway-commandline/${{ env.FLYWAY_VERSION }}/flyway-commandline-${{ env.FLYWAY_VERSION }}-linux-x64.tar.gz
-          tar xvf flyway.tar.gz
-          if [ -L /usr/local/bin/flyway ] || [ -f /usr/local/bin/flyway ]; then sudo rm -f /usr/local/bin/flyway; fi
-          sudo ln -s `pwd`/flyway-${{ env.FLYWAY_VERSION }}/flyway /usr/local/bin
+          wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${{ env.FLYWAY_VERSION }}/flyway-commandline-${{ env.FLYWAY_VERSION }}-linux-x64.tar.gz | tar xvz && sudo ln -s `pwd`/flyway-${{ env.FLYWAY_VERSION }}/flyway /usr/local/bin
 
       - name: Remove the placeholder (sql) directory
         run: |
